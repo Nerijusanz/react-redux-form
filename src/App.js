@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col, ButtonToolbar, Button } from "react-bootstrap";
+import { Container, Row, Col } from "reactstrap";
 
 import "./App.css";
 import LocationForm from "./components/forms/LocationForm";
@@ -20,18 +20,7 @@ class App extends Component {
             <Col md={6}>
               <LocationForm />
             </Col>
-            <Col md={6}>
-              <ButtonToolbar>
-                <Button variant="outline-primary">Primary</Button>
-                <Button variant="outline-secondary">Secondary</Button>
-                <Button variant="outline-success">Success</Button>
-                <Button variant="outline-warning">Warning</Button>
-                <Button variant="outline-danger">Danger</Button>
-                <Button variant="outline-info">Info</Button>
-                <Button variant="outline-light">Light</Button>
-                <Button variant="outline-dark">Dark</Button>
-              </ButtonToolbar>
-            </Col>
+            <Col md={6}>.col-2</Col>
           </Row>
         </Container>
       </div>
