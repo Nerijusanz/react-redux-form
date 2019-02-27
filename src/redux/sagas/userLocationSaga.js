@@ -30,7 +30,7 @@ export function* callUserLocationSaga(action) {
 
     yield put(userLocationRequestSuccess(action.payload));
   } catch (err) {
-    yield put(userLocationRequestFailure(action.payload)); // got errors from server
+    yield put(userLocationRequestFailure(err)); // got errors from server
   }
 }
 
