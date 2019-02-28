@@ -1,3 +1,4 @@
+import axios from "axios";
 import { call, put, takeLatest } from "redux-saga/effects";
 import {
   USER_LOCATION_REQUEST,
@@ -22,18 +23,31 @@ const userLocationRequestFailure = error => ({
   payload: error
 });
 
+function* getUsersApi() {
+  return yield axios(`https://jsonplaceholder.typicode.com/users`);
+}
+
 // ---------------sagas actions-----------------------------------
 
 export function* callUserLocationSaga(action) {
+  // const { location } = action.payload;
+
   try {
     // const user = yield call("API request to server here...", action.payload);
+    // const results = yield call(getUsersByLocation, location);
+    const res = yield call(getUsersApi);
 
-    yield put(userLocationRequestSuccess(action.payload));
+    if (res.data) {
+      const payload = action.payload;
+      payload.users = res.data;
+
+      yield put(userLocationRequestSuccess(payload));
+    }
   } catch (err) {
     yield put(userLocationRequestFailure(err)); // got errors from server
   }
 }
 
-export function* userLocationSaga() {
+export function* getUserLocationSaga() {
   yield takeLatest(USER_LOCATION_REQUEST, callUserLocationSaga);
 }

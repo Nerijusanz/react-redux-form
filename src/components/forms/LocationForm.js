@@ -6,11 +6,9 @@ import { Alert, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { userLocationRequest } from "../../redux/sagas/userLocationSaga";
 
 const submit = (values, dispatch) => {
-  try {
+
     dispatch(userLocationRequest(values));
-  } catch (error) {
-    console.log(error);
-  }
+
 };
 
 const renderInput = ({ input, label, meta, custom }) => {

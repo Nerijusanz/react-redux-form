@@ -1,7 +1,7 @@
-import { userLocationSaga } from "./userLocationSaga";
+import { fork } from "redux-saga/effects";
+import { getUserLocationSaga } from "./userLocationSaga";
 
 // --------------------ROOT SAGA----------------------------
 export default function* rootSaga() {
-  yield userLocationSaga();
-  // yield saga_name();
+  yield [yield fork(getUserLocationSaga)];
 }

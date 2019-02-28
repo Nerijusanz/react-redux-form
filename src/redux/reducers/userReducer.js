@@ -8,6 +8,7 @@ const initialState = {
   username: "",
   location: "",
   country: "",
+  users: [],
   loaded: false
 };
 
@@ -25,6 +26,7 @@ export default function user(state = initialState, action) {
         username: action.payload.username,
         location: action.payload.location,
         country: action.payload.country,
+        users: action.payload.users,
         loaded: true
       };
     case USER_LOCATION_FAILURE:
